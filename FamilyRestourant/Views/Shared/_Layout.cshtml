@@ -80,7 +80,22 @@
                     <li><a class="nav-link scrollto" asp-controller="Contact" asp-action="Index">Contact</a></li>
                     <li><a class="nav-link scrollto" asp-controller="Testimonials" asp-action="Index">Testimonials</a></li>
                     <li><a class="nav-link scrollto" asp-controller="WhyChooseUs" asp-action="Index">Why Choose Us</a></li>
-                   
+                    
+                </ul>
+                <ul class="navbar-right d-flex align-items-center">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Account" asp-action="register" class="nav-item nav-link">@User.Identity.Name</a>
+                        <a asp-controller="Account" asp-action="logout" class="nav-item nav-link">Logout</a>
+
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="login" class="nav-item nav-link">Login</a>
+                        <a asp-controller="Account" asp-action="register" class="nav-item nav-link">Register</a>
+
+
+                    }
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

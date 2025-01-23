@@ -15,5 +15,7 @@ namespace FamilyRestourant.Entities
         public double Price { get; set; }
         public string Subtitle { get; set; }
         public List<MenusFoods> MenusFoods { get; set; }
+        public List<ReservationFoods> ReservationFoods { get; set; }
+
     }
 }

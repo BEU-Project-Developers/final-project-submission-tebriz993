@@ -1,4 +1,6 @@
-﻿<!-- ======= Book A Table Section ======= -->
+﻿@model ReservationViewModel
+
+<!-- ======= Book A Table Section ======= -->
 <section id="book-a-table" class="book-a-table">
     <div class="container" data-aos="fade-up">
 
@@ -7,44 +9,49 @@
             <p>Book a Table</p>
         </div>
 
-        <form action="https://themewagon.github.io/restaurantly/forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+        <!-- Reservation Form -->
+        <form action="/BookTable/Index" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+            @Html.AntiForgeryToken()
             <div class="row">
                 <div class="col-lg-4 col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                    <div class="validate"></div>
+                    <input type="text" name="Reservation.Name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-                    <div class="validate"></div>
+                    <input type="email" class="form-control" name="Reservation.Email" id="email" placeholder="Your Email" required>
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                    <div class="validate"></div>
+                    <input type="text" class="form-control" name="Reservation.Phone" id="phone" placeholder="Your Phone" required>
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                    <div class="validate"></div>
+                    <input type="datetime-local" name="Reservation.ReservationDateTime" class="form-control" id="reservationDateTime" placeholder="Reservation Date and Time" required>
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                    <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-                    <div class="validate"></div>
+                    <input type="number" class="form-control" name="Reservation.People" id="people" placeholder="# of people" required>
                 </div>
             </div>
             <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-                <div class="validate"></div>
+                <textarea class="form-control" name="Reservation.Message" rows="5" placeholder="Message"></textarea>
             </div>
+
+            <!-- Foods Selection -->
+            
+             
+            <!-- Submit Message and Buttons -->
             <div class="mb-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
             </div>
-            <div class="text-center"><button type="submit">Book a Table</button></div>
-        </form>
 
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-</section><!-- End Book A Table Section -->
+</section>
+<!-- End Book A Table Section -->
+<script>
+    // Funksiya, formun düzgün şəkildə göndərilməsini təmin edir
+    function confirmSubmit(event) {
+        return confirm('Are you sure you want to submit your reservation?');
+    }
+</script>
+

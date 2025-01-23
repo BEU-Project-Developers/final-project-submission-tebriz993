@@ -24,7 +24,7 @@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a class="navbar-brand brand-logo" asp-controller="Dashboard" asp-action="Index">Software Village  </a>
+                    <a class="navbar-brand brand-logo" asp-controller="Dashboard" asp-action="Index">Family Restaurant  </a>
                      <a class="navbar-brand brand-logo-mini" href="index.html"></a>
                      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="mdi mdi-sort-variant"></span>
@@ -61,102 +61,28 @@
                         </div>
                     </li> *@
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="It_SoftwareVillage" asp-action="Index">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
                             <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Software Village (Yuxarı hissə)</span>
+                            <span class="menu-title">Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Down_SoftwareVillage" asp-action="Index">
+                        <a class="nav-link" asp-controller="About" asp-action="Index">
                             <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Software Village (Aşağı hissə)</span>
+                            <span class="menu-title">About</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="AboutUs" asp-action="Index">
+                        <a class="nav-link" asp-controller="Reservation" asp-action="Index">
                             <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Haqqımızda</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Elaqe" asp-action="Index">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Əlaqə</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Muraciet" asp-action="Index">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Müraciət etməyə tələsin</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Teachers" asp-action="Index">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Təlimçilərimiz</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="StudentFeedbacks" asp-action="Index">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Tələbələrimizin rəyləri</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Niye_SoftwareVillage" asp-action="Index">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Niyə Software Village?</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Vizyon" asp-action="Index">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Missiyamız</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Partnyors" asp-action="Index">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Partnyorlarımız</span>
+                            <span class="menu-title">Reservations</span>
                         </a>
                     </li>
 
 
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Kurslar</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Programming" asp-action="Index">Proqramlaşdırma</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-controller="ITandCybersecurity" asp-action="Index">İT və Kibertəhlükəsizlik</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Design" asp-action="Index">Dizayn</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-controller="DataScience" asp-action="Index">Data Analitika</a></li>
-                                
-                            </ul>
-                        </div>
-                    </li>
+                   
 
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="mdi mdi-view-headline menu-icon"></i>
-                            <span class="menu-title">Kurs məlumatları</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Carousel_Programming" asp-action="Index">Proqramlaşdırma</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Carousel_ITAndCybersecurity" asp-action="Index">İT və Kibertəhlükəsizlik</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Carousel_Design" asp-action="Index">Dizayn</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-controller="Carousel_DataScience" asp-action="Index">Data Analitika</a></li>
-
-                            </ul>
-                        </div>
-                    </li>
+                    
                     @* 
                     <li class="nav-item">
                         <a class="nav-link" href="pages/charts/chartjs.html">

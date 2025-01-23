@@ -1,0 +1,55 @@
+﻿@model List<About>
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Haqqımızda Siyahısı</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Şəkil</th>
+                                        <th>Başlıq</th>
+                                        <th>Altbaşlıq</th>
+                                        <th>Təsvirlər</th>
+                                        <th>Əməliyyatlar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="py-1">
+                                                <img src="~/assets/img/@item.Image" alt="image" />
+                                            </td>
+                                            <td>@item.Title</td>
+                                            <td>@item.Subtitle</td>
+                                            <td>
+                                                <ul>
+                                                    <li>@item.Smalltitle1</li>
+                                                    <li>@item.Smalltitle2</li>
+                                                    <li>@item.Smalltitle3</li>
+                                                    <li>@item.Description</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzəliş et</a>
+                                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('Silmək istədiyinizdən əminsiniz?');">Sil</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <a asp-action="Create" class="btn btn-primary mt-3">Yeni Məlumat Əlavə Et</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ using FamilyRestourant.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FamilyRestourant.Migrations
 {
     [DbContext(typeof(FamilyRestourantDbContext))]
-    partial class FamilyRestourantDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250123054424_mig-2")]
+    partial class mig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -372,8 +375,7 @@ namespace FamilyRestourant.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("People")
                         .HasColumnType("int");
@@ -385,32 +387,13 @@ namespace FamilyRestourant.Migrations
                     b.Property<DateTime>("ReservationDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Reservations");
-                });
-
-            modelBuilder.Entity("FamilyRestourant.Entities.ReservationFoods", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("FoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ReservationId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FoodId");
-
-                    b.HasIndex("ReservationId");
-
-                    b.ToTable("ReservationFoods");
                 });
 
             modelBuilder.Entity("FamilyRestourant.Entities.SpecialDescription", b =>
@@ -509,31 +492,6 @@ namespace FamilyRestourant.Migrations
                     b.ToTable("TwitterAddresses");
                 });
 
-            modelBuilder.Entity("FamilyRestourant.Entities.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("FamilyRestourant.Entities.WhyChooseUs", b =>
                 {
                     b.Property<int>("Id")
@@ -617,25 +575,6 @@ namespace FamilyRestourant.Migrations
                     b.Navigation("Menus");
                 });
 
-            modelBuilder.Entity("FamilyRestourant.Entities.ReservationFoods", b =>
-                {
-                    b.HasOne("FamilyRestourant.Entities.Foods", "Foods")
-                        .WithMany("ReservationFoods")
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FamilyRestourant.Entities.Reservation", "Reservation")
-                        .WithMany("ReservationFoods")
-                        .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Foods");
-
-                    b.Navigation("Reservation");
-                });
-
             modelBuilder.Entity("FamilyRestourant.Entities.Specials", b =>
                 {
                     b.HasOne("FamilyRestourant.Entities.SpecialDescription", "SpecialDescription")
@@ -666,8 +605,6 @@ namespace FamilyRestourant.Migrations
             modelBuilder.Entity("FamilyRestourant.Entities.Foods", b =>
                 {
                     b.Navigation("MenusFoods");
-
-                    b.Navigation("ReservationFoods");
                 });
 
             modelBuilder.Entity("FamilyRestourant.Entities.InstagramAddress", b =>
@@ -683,11 +620,6 @@ namespace FamilyRestourant.Migrations
             modelBuilder.Entity("FamilyRestourant.Entities.Menus", b =>
                 {
                     b.Navigation("MenusFoods");
-                });
-
-            modelBuilder.Entity("FamilyRestourant.Entities.Reservation", b =>
-                {
-                    b.Navigation("ReservationFoods");
                 });
 
             modelBuilder.Entity("FamilyRestourant.Entities.SpecialDescription", b =>

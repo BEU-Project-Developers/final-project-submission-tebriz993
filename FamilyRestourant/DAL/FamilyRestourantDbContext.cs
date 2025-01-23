@@ -1,5 +1,6 @@
 ﻿using FamilyRestourant.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 
 namespace FamilyRestourant.DAL
 {
@@ -24,11 +25,14 @@ namespace FamilyRestourant.DAL
         public DbSet<Menus> Menus { get; set; }
         public DbSet<MenusFoods> MenusFoods { get; set;}
         public DbSet<Professions> Professions { get; set;}
+        public DbSet<Reservation> Reservations { get; set; }
         public DbSet<SpecialDescription> SpecialDescriptions { get; set; }
         public DbSet<Specials> Specials { get; set; }
         public DbSet<Testimonials> Testimonials { get; set;}
         public DbSet<TwitterAddress> TwitterAddresses { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<WhyChooseUs> WhyChooseUs { get; set; }
+
 
 
     }
